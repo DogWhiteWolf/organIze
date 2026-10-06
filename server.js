@@ -63,10 +63,10 @@ http.createServer(async (req, res) => {
     }
     return;
   }
-  if (pathname === '/api/calendar/events' && req.method === 'POST') {
+  if (pathname === '/api/calendar/events' && ['POST', 'PATCH'].includes(req.method)) {
     let event;
     try { event = await bodyJson(req); } catch { return json(res, 400, { error: 'Invalid event request.' }); }
-    if (!event.title || !event.start || !event.end || !event.timezone) return json(res, 400, { error: 'Task title, work time, and timezone are required.' });
+    if (!event.title || !event.start || !event.end || !event.timezone || (req.method === 'PATCH' && !event.eventId)) return json(res, 400, { error: 'Task title, work time, and timezone are required.' });
     try {
       const token = await googleToken();
       const resource = {
@@ -76,10 +76,11 @@ http.createServer(async (req, res) => {
         end: { dateTime: `${event.end.slice(0, 16)}:00`, timeZone: event.timezone },
         extendedProperties: { private: { daywellTaskId: String(event.id || '') } },
       };
-      const response = await fetch('https://www.googleapis.com/calendar/v3/calendars/primary/events', { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(resource) });
+      const eventUrl = `https://www.googleapis.com/calendar/v3/calendars/primary/events${req.method === 'PATCH' ? `/${encodeURIComponent(event.eventId)}` : ''}`;
+      const response = await fetch(eventUrl, { method: req.method, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(resource) });
       const data = await response.json();
       if (!response.ok) return json(res, response.status, { error: data.error?.message || 'Google Calendar rejected the event.' });
-      return json(res, 201, { eventId: data.id });
+      return json(res, req.method === 'PATCH' ? 200 : 201, { eventId: data.id });
     } catch (error) { return json(res, 502, { error: error.message || 'Calendar sync failed.' }); }
   }
   const requested = resolve(root, `.${pathname === '/' ? '/index.html' : pathname}`);

@@ -1,58 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f7f7f4">
-  <title>Daywell — Make room for what matters</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#ffffff">
+<title>organ⚡ze — Make time for what matters</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="app-shell">
-    <aside class="sidebar">
-      <a class="brand" href="#" aria-label="Daywell home"><span class="brand-mark"><svg viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3.5 17 11l7.5 3-7.5 3-3 7.5-3-7.5-7.5-3 7.5-3 3-7.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="m21.5 3 .9 2.2 2.1.8-2.1.9-.9 2.1-.8-2.1-2.2-.9 2.2-.8.8-2.2Z" fill="currentColor"/></svg></span><span>daywell</span></a>
-      <div class="workspace-label">WORKSPACE</div>
-      <nav class="main-nav" aria-label="Main navigation">
-        <button class="nav-item active" data-view="today"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M8 2.8v3.5M16 2.8v3.5M3.5 9.5h17m-12.8 4h3m-3 3.3h7"/></svg><span>Today</span><span class="nav-count" id="nav-count">0</span></button>
-        <button class="nav-item" data-view="upcoming"><svg viewBox="0 0 24 24"><path d="M4 5.5h16M4 12h16M4 18.5h10"/><circle cx="7" cy="5.5" r="2"/><circle cx="14" cy="12" r="2"/></svg><span>Upcoming</span></button>
-        <button class="nav-item" data-view="all"><svg viewBox="0 0 24 24"><path d="M8.5 6h12M8.5 12h12M8.5 18h12"/><path d="m3.5 6 .8.8 1.5-1.7M3.5 12l.8.8 1.5-1.7M3.5 18l.8.8 1.5-1.7"/></svg><span>All tasks</span></button>
-      </nav>
-      <div class="sidebar-divider"></div>
-      <div class="sidebar-section-heading"><span>YOUR SPACE</span><button class="icon-button tiny" aria-label="Add list" id="add-list-button">+</button></div>
-      <button class="nav-item simple" data-view="all"><span class="list-dot dot-lilac"></span><span>Personal</span></button>
-      <button class="nav-item simple" data-view="all"><span class="list-dot dot-mint"></span><span>Work</span></button>
-      <div class="sidebar-bottom">
-        <div class="sidebar-tip"><div class="tip-icon">✳</div><p>A little progress<br>adds up to a lot.</p><span>KEEP GOING</span></div>
-        <button class="profile-button"><span class="avatar">A</span><span class="profile-copy"><strong>Alex Morgan</strong><small>Free plan</small></span><svg class="chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></button>
-      </div>
-    </aside>
+<div class="layout">
+<aside class="sidebar"><a class="brand" href="#" aria-label="organize home"><span>organ</span><span class="bolt">ϟ</span><span>ze</span></a><div class="label">YOUR LIFE</div><nav><button class="nav active" data-view="today"><span class="nav-icon">◷</span>Today<span class="badge" id="count">0</span></button><button class="nav" data-view="upcoming"><span class="nav-icon">▦</span>Upcoming</button><button class="nav" data-view="all"><span class="nav-icon">☷</span>All tasks<span class="badge pale" id="all-count">0</span></button></nav><div class="sidebar-bottom"><div class="streak"><div class="streak-icon">ϟ</div><div><b id="done-count">0</b><span>tasks completed</span></div></div><div class="side-note">Small steps. Big energy.</div></div></aside>
+<main><header class="top"><span class="crumb">My space <i>›</i> <b id="page-title">Today</b></span><div class="top-actions"><span class="local-time">LOCAL TIME · <span id="timezone"></span></span><button class="calendar-button" id="calendar"><span class="google">G</span>Connect Google Calendar <span class="arrow">↗</span></button><span id="calendar-state" class="hide"></span></div></header>
+<div class="content"><section class="intro"><div><div class="date" id="date-label"></div><h1>Make today <span>count.</span></h1><p>One focused step at a time. You’ve got this.</p></div><div class="bolt-art" aria-hidden="true">ϟ</div></section>
+<section class="progress-card"><div class="progress-top"><div><span class="tiny-label">YOUR MOMENTUM</span><strong><span id="done-count-copy">0</span> steps completed</strong></div><span class="progress-caption">Keep your streak going <span>✦</span></span></div><div class="track"><div id="progress"></div></div></section>
+<section class="tasks-section"><div class="section-top"><div><div class="title-line"><h2 id="list-title">Today’s plan</h2><span class="total" id="total">0</span></div><p>Clear the noise. Focus on the next thing.</p></div><button class="filter" id="filter">View all <span>⌄</span></button></div>
+<form class="quick-add" id="quick-form"><span class="plus">＋</span><input id="quick" placeholder="What do you need to get done? Try ‘Read chapter 4 tomorrow at 2pm…’" autocomplete="off"><button type="submit">Add task <span>→</span></button></form>
+<div id="tasks" class="tasks"></div><div id="empty" class="empty hide"><div class="empty-icon">✦</div><strong>A fresh start.</strong><span>Your list is clear. Add a task and make a little progress.</span><button id="empty-add">Create a task <span>＋</span></button></div><button class="add-row" id="add">＋ &nbsp; Add another task</button>
+</section><footer><span>organ<span class="footer-bolt">ϟ</span>ze</span><span>Make time for what matters.</span></footer></div></main></div>
+<dialog id="modal"><form id="task-form"><div class="modal-header"><div class="modal-brand"><span class="mini-bolt">ϟ</span> PLAN YOUR NEXT STEP</div><button type="button" id="close" aria-label="Close">×</button></div><h2 id="modal-title">Add a task</h2><p class="modal-sub">Write it down. We’ll help you make room for it.</p><label for="title">Task name</label><input id="title" maxlength="180" required placeholder="e.g. Study biology">
+<label for="natural">When will you work on it? Tell us naturally.</label><textarea id="natural" rows="2" placeholder="Tomorrow at 4pm, due Friday at 5pm, for 45 minutes"></textarea><div class="parse-note" id="parse-note">Type naturally or set your schedule below. Duration defaults to 30 minutes.</div>
+<div class="fields"><div><label for="work-date">Work date</label><input id="work-date" type="date" required></div><div><label for="work-time">Start time</label><input id="work-time" type="time" required></div><div><label for="duration">Duration</label><div class="suffix"><input id="duration" type="number" min="5" max="720" step="5" value="30" required><span>min</span></div></div><div><label for="due">Due date &amp; time</label><input id="due" type="datetime-local"></div></div><div id="conflict" class="conflict hide">That time overlaps another task. Choose a different work time.</div><div class="modal-actions"><button type="button" class="delete-task hide" id="delete-task">Delete task</button><button type="button" class="cancel" id="cancel">Cancel</button><button id="save" type="submit">Save task <span>→</span></button></div></form></dialog><div id="toast" role="status"></div><script src="/app.js" defer></script>
+</body></html>
 
-    <main class="main-content">
-      <header class="topbar"><div class="breadcrumb"><span>My workspace</span><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg><strong id="breadcrumb-view">Today</strong></div><div class="topbar-actions"><span class="timezone-label" id="timezone-label">LOCAL TIME</span><button class="top-icon" id="help-button" aria-label="Help"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.5 2.5 0 1 1 4.3 1.8c-1.1 1-1.9 1.4-1.9 3M12 17.2v.1"/></svg></button><button class="top-icon" aria-label="Notifications"><svg viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0c0 7-2.5 7-2.5 8.5h17C20.5 16 18 16 18 9ZM10 21h4"/></svg><i class="notification-dot"></i></button></div></header>
-
-      <div class="content-wrap">
-        <section class="welcome-row"><div><div class="eyebrow" id="date-label">MONDAY, JUNE 10, 2025</div><h1 id="greeting">Good morning, Alex <span class="sun">☀</span></h1><p class="welcome-subtitle">A clear mind starts with a clear plan.</p></div><button class="google-connect" id="google-connect"><span class="google-g">G</span><span id="google-connect-label">Connect Google Calendar</span><svg viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></svg></button></section>
-
-        <section class="focus-card" aria-label="Daily progress"><div class="focus-left"><div class="focus-symbol"><svg viewBox="0 0 36 36"><path d="m18 4 3.7 9.3L31 17l-9.3 3.7L18 30l-3.7-9.3L5 17l9.3-3.7L18 4Z"/><path d="m28 3 1.3 3.2L32.5 7.5l-3.2 1.3L28 12l-1.3-3.2-3.2-1.3 3.2-1.3L28 3Z"/></svg></div><div><strong>One thing at a time.</strong><span>You’ve got this. Your day is taking shape.</span></div></div><div class="progress-wrap"><div class="progress-copy"><span id="progress-label">0 of 0 completed</span><strong id="progress-percent">0%</strong></div><div class="progress-track"><span id="progress-bar"></span></div></div></section>
-
-        <section class="task-section"><div class="section-heading"><div><div class="section-title-line"><h2 id="section-title">Today’s tasks</h2><span class="task-total" id="task-total">0</span></div><p id="section-caption">A gentle plan for your day</p></div><div class="task-controls"><button class="filter-button" id="filter-button"><svg viewBox="0 0 24 24"><path d="M4 7h16M7 12h10m-7 5h4"/></svg><span>Filter</span><svg class="control-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg></button><button class="sort-button" id="sort-button"><svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h9M8 18h6"/><path d="m3 8 2-2 2 2m-2-2v12"/></svg><span>Sort: Time</span></button></div></div>
-
-          <form class="quick-add" id="quick-add-form"><div class="quick-add-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><input id="quick-add-input" type="text" autocomplete="off" placeholder="Add a task, or try “Study biology tomorrow at 4pm, due Friday”"><kbd>↵</kbd><button class="quick-add-submit" type="submit" aria-label="Add task"><svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></form>
-
-          <div class="task-list" id="task-list"></div>
-          <div class="empty-state hidden" id="empty-state"><div class="empty-illustration"><span class="empty-spark">✳</span><div class="empty-paper"><i></i><i></i><i></i></div></div><strong>Nothing on your list yet</strong><span>Capture what’s on your mind. We’ll help you find time for it.</span><button id="empty-add-button">Add your first task <span>＋</span></button></div>
-          <button class="add-task-row" id="add-task-button"><span>＋</span> Add a task <kbd>N</kbd></button>
-        </section>
-        <footer class="main-footer"><span>Made for a life well lived.</span><span>Take a breath. You’re right where you need to be.</span><span>✳</span></footer>
-      </div>
-    </main>
-  </div>
-
-  <dialog class="review-dialog" id="review-dialog"><form id="review-form" method="dialog"><div class="dialog-topline"><div class="dialog-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div><button class="dialog-close" value="cancel" aria-label="Close">×</button></div><div class="dialog-eyebrow">MAKE A LITTLE ROOM</div><h2>Let’s shape your task</h2><p class="dialog-intro">Tell us what you’re working on. We’ll turn your words into a thoughtful plan.</p><label class="field-label" for="task-title">Task</label><input class="text-field" id="task-title" required maxlength="180" placeholder="What would you like to do?"/><label class="field-label" for="natural-input">Add timing in your own words</label><textarea class="text-field textarea" id="natural-input" rows="2" placeholder="e.g. tomorrow at 3pm, due Friday at 5pm"></textarea><div class="parser-note" id="parser-note"><span class="parser-dot"></span><span>We’ll look for a work time, due date, and duration (30 min by default).</span></div><div class="field-grid"><div><label class="field-label" for="work-date">Work date</label><input class="text-field" id="work-date" type="date" required></div><div><label class="field-label" for="work-time">Start time</label><input class="text-field" id="work-time" type="time" required></div><div><label class="field-label" for="duration">Duration</label><div class="input-suffix"><input class="text-field" id="duration" type="number" min="5" max="720" step="5" value="30" required><span>min</span></div></div><div><label class="field-label" for="due-datetime">Due date &amp; time</label><input class="text-field" id="due-datetime" type="datetime-local"></div></div><div class="calendar-warning hidden" id="calendar-warning"><span>!</span><span>This work time overlaps another calendar event. Adjust the time to continue.</span></div><div class="calendar-status" id="calendar-status"><span class="status-icon">G</span><span id="calendar-status-text">Connect Google Calendar to add this work block to your calendar.</span></div><div class="dialog-actions"><button class="cancel-button" value="cancel">Cancel</button><button class="save-button" id="save-task-button" type="submit" value="save">Add to my day <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div><input type="hidden" id="task-id"></form></dialog>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="/app.js" defer></script>
-</body>
-</html>
